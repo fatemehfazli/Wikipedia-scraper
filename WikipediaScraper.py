@@ -8,8 +8,8 @@ print('----------------------------')
 response= requests.get(wiki_url)
 if response.status_code == 200:
     soup = BeautifulSoup(response.text,"html.parser")
-    table = soup.find_all('p')[1]
-    links = table.findAll('a')
+    paragraph = soup.find_all('p')[1]
+    links = paragraph.findAll('a')
     print('Done extracting links. About to fetch: %s links..' % len(links))
 
     for link in links:
